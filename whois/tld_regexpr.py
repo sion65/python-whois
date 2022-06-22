@@ -19,6 +19,8 @@ com = {
     "name_servers": r"Name Server:\s*(.+)\s*",
     "status": r"Status:\s?(.+)",
     "emails": r"[\w.-]+@[\w.-]+\.[\w]{2,4}",
+    "reg_id": r"Registrar IANA ID:\s?(.+)",
+    "reg_abuse": r"Registrar Abuse Contact Email:\s*(.+)\s*",
 }
 
 # United Kingdom - academic sub-domain

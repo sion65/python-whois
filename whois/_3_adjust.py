@@ -7,12 +7,35 @@ from typing import Any, List, Dict, Optional
 
 PYTHON_VERSION = sys.version_info[0]
 
+# Define a function for
+# for validating an Email
+def check_email(email):
+
+    # pass the regualar expression
+    # and the string in search() method
+    if "@" in email:
+        return email
+
+    else:
+        return ''
+
+def check_regid(regid):
+
+    # pass the regualar expression
+    # and the string in search() method
+    if regid.isdigit():
+        return regid
+
+    else:
+        return ''
 
 class Domain:
     # make sure all fields actually exist allways
     name: str = None
     tld = None
     registrar = None
+    reg_id = None
+    reg_abuse = None
     registrant_country = None
 
     creation_date = None
@@ -39,6 +62,8 @@ class Domain:
         self.tld = data["tld"]
 
         self.registrar = data["registrar"][0].strip()
+        self.reg_id = check_regid(data['reg_id'][0].strip())
+        self.reg_abuse = check_email(data['reg_abuse'][0].strip())
         self.registrant_country = data["registrant_country"][0].strip()
 
         self.creation_date = str_to_date(data["creation_date"][0], self.tld.lower())
